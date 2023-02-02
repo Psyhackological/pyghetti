@@ -15,7 +15,7 @@ def main():
     """
     rustlings_dict = defaultdict(list)
 
-    with open("exercises.txt", "rt", encoding="utf-8") as rustlings_exercises:
+    with open("rustlings.txt", "rt", encoding="utf-8") as rustlings_exercises:
         for line in rustlings_exercises:
             category, *file = line.strip().split(r"/")
             rustlings_dict[category if r"/" in line else "quiz"].append(
