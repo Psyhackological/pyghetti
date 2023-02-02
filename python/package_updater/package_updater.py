@@ -1,8 +1,23 @@
+"""
+This module contains only main function
+"""
 import subprocess
 import pkg_resources
 
-packages = [dist.project_name for dist in pkg_resources.working_set]
-PACKAGES_SPACE_SEPARATED = " ".join(packages)
-COMMAND = "pip install"
-FLAG = "-U"
-subprocess.run(f"{COMMAND} {FLAG} {PACKAGES_SPACE_SEPARATED}", shell=True, check=True)
+
+def main():
+    """
+    This script updates all the packages in the current Python environment using pip.
+    """
+    distributions = list(pkg_resources.working_set)
+    packages = [dist.project_name for dist in distributions]
+    packages_space_separated = " ".join(packages)
+    command = "pip install"
+    flag = "-U"
+    subprocess.run(
+        f"{command} {flag} {packages_space_separated}", shell=True, check=True
+    )
+
+
+if __name__ == "__main__":
+    main()
