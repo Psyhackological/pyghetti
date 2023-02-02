@@ -1,5 +1,5 @@
 """
-Contains main function only
+This module contains only main function
 """
 from collections import defaultdict
 import pprint
